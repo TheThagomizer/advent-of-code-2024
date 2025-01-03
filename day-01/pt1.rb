@@ -13,8 +13,7 @@ a.sort!
 b.sort!
 
 sum = a.zip(b).sum { |first, second| 
-    difference = first - second
-    difference = difference.abs 
+    (first - second).abs 
 }
 
 puts sum
