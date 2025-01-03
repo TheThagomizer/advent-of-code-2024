@@ -1,6 +1,5 @@
 a = []
 b = []
-sum = 0
 
 File.readlines('input')
     .map(&:strip)
@@ -13,10 +12,9 @@ File.readlines('input')
 a.sort!
 b.sort!
 
-a.zip(b).each { |first, second| 
+sum = a.zip(b).sum { |first, second| 
     difference = first - second
     difference = difference.abs 
-    sum += difference
 }
 
 puts sum
