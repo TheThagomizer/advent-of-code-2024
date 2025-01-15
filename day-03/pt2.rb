@@ -3,11 +3,11 @@ state = true
 total = File.readlines('input')
   .map(&:strip)
   .sum do |line|
-    line.scan(/mul\((\d{1,3}),(\d{1,3})\)|(don't\(\)|do\(\))/).sum { |a, b, toggle|
+    line.scan(/mul\((\d{1,3}),(\d{1,3})\)|(don't|do)\(\)/).sum { |a, b, toggle|
       if toggle
-        if toggle == "do()"
+        if toggle == "do"
           state = true
-        elsif toggle == "don't()"
+        elsif toggle == "don't"
           state = false
         end
         next 0
