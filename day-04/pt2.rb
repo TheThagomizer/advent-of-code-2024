@@ -3,7 +3,7 @@ require "pry-byebug"
 require "pry-rescue"
 require "pry-stack_explorer"
 
-grid = File.readlines("test-input").map(&:strip).map(&:chars)
+grid = File.readlines("input").map(&:strip).map(&:chars)
 matrix = Matrix[*grid]
 
 MAX_SIZE = matrix.row_count.freeze
