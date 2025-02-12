@@ -3,7 +3,7 @@ require "pry-byebug"
 require "pry-rescue"
 require "pry-stack_explorer"
 
-grid = File.readlines("input").map(&:strip).map(&:chars)
+grid = File.readlines("test-input").map(&:strip).map(&:chars)
 matrix = Matrix[*grid]
 
 MAX_SIZE = matrix.row_count.freeze
@@ -21,10 +21,8 @@ total = matrix.each_with_index.count {|char, ri, ci|
   pos = Vector[ri, ci]
   dirs.count {|dv|
     (-1..1).all? { |i|
-    #binding.pry
       next_pos = pos + (dv * i)
       next_pos.all? { |j| 
-      #binding.pry
         j >=0 && j < MAX_SIZE
       } && matrix[*next_pos] == TARGET[i+1]
     }  
